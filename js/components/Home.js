@@ -3,20 +3,26 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as HomeActions from '../actions/HomeActions';
 import styles from '../../css/app.css';
+import Header from './Header';
+import Aside from './Aside';
+import Footer from './Footer';
 
 class Home extends Component {
+  constructor(){
+    super();
+  }
   render() {
     const {title, dispatch} = this.props;
     const actions = bindActionCreators(HomeActions, dispatch);
     return (
-      <main>
-        <h1 className={styles.text}>Welcome {title}!</h1>
-        <button onClick={e => actions.changeTitle(prompt())}>
-          Update Title
-        </button>
-      </main>
+      <div>
+        <Header />
+        {this.props.children}
+        <Aside />
+        <Footer />
+      </div>
     );
   }
 }
-
-export default connect(state => state.Sample)(Home)
+console.log(connect((state) => state.Sample));
+export default Home;//connect((state) => state.Sample)(Home);

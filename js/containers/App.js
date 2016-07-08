@@ -1,24 +1,39 @@
 import React from 'react';
-import {Provider} from 'react-redux';
+import { Router, Route, browserHistory } from 'react-router'
+import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
 import configureStore from '../store/configureStore';
 import Home from '../components/Home';
+import Birds from '../components/Birds';
+import Spots from '../components/Spots';
 import {renderDevTools} from '../utils/devTools';
+
+const initialState = {
+  birds: [],
+  spots: []
+};
 
 const store = configureStore();
 
+
+//Create an enhanced history that syncs navigation events with the store
+const history = syncHistoryWithStore(browserHistory, store);
+
+
 export default React.createClass({
   render() {
+    console.log('store', store);
     return (
       <div>
-
-        {/* <Home /> is your app entry point */}
         <Provider store={store}>
-          <Home />
+          <Router history={history}>
+            <Route path="/" component={Home}>
+              <Route path="birds" component={Birds}/>
+              <Route path="spots" component={Spots}/>
+            </Route>
+          </Router>
         </Provider>
-
-        {/* only renders when running in DEV mode */
-          renderDevTools(store)
-        }
       </div>
     );
   }
