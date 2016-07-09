@@ -24,5 +24,8 @@ class Home extends Component {
     );
   }
 }
-console.log(connect((state) => state.Sample));
-export default Home;//connect((state) => state.Sample)(Home);
+// console.log(connect((state) => state.Sample));
+export default connect((state) => {
+  console.log('HERE', state);
+  return state.Sample
+})(Home);

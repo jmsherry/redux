@@ -9,13 +9,7 @@ import Birds from '../components/Birds';
 import Spots from '../components/Spots';
 import {renderDevTools} from '../utils/devTools';
 
-const initialState = {
-  birds: [],
-  spots: []
-};
-
 const store = configureStore();
-
 
 //Create an enhanced history that syncs navigation events with the store
 const history = syncHistoryWithStore(browserHistory, store);

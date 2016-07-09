@@ -14,4 +14,4 @@ class Birds extends Component {
   }
 }
 
-export default connect((state) => state.Sample)(Birds)
+export default connect((state) => state.Sample)(Birds);
