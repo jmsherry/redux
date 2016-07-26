@@ -5,7 +5,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import configureStore from '../store/configureStore';
 import Home from '../components/Home';
-import Main from '../components/main';
+import Main from '../components/Main';
 import MatchList from '../components/MatchList';
 import Score from '../components/Score';
 import {renderDevTools} from '../utils/devTools';

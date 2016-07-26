@@ -4,13 +4,14 @@ import {
   CREATE_MATCH
 } from '../constants/ActionTypes';
 import fbdb from './../databases/firebase';
-console.log(fbdb);
+import _ from 'lodash';
 
 export function listMatches() {
-  console.log(fbdb);
+  console.log('listMatches', fbdb);
   return (dispatch) => {
     console.log('2', dispatch);
-    fbdb.on('value', (snapshot) =>{
+    fbdb.child('games').on('value', (snapshot) =>{
+      console.log('3', snapshot);
       dispatch({
         type: LIST_MATCHES,
         payload: snapshot.val()
@@ -27,6 +28,7 @@ export function filterMatches(playerId) {
 }
 
 export function createMatch(matchData) {
+  matchdata._id = _.uniqueId();
   return {
     type: CREATE_MATCH,
     matchData

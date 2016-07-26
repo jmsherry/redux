@@ -9,8 +9,8 @@ let createStoreWithMiddleware;
 // Configure the dev tools when in DEV mode
 if (__DEV__) {
   createStoreWithMiddleware = compose(
-    applyMiddleware(thunkMiddleware),
-    window.devToolsExtension ? window.devToolsExtension() : (f) => f
+    applyMiddleware(thunkMiddleware)//,
+    //window.devToolsExtension ? window.devToolsExtension() : (f) => f
     // devTools(),
     // persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/))
   )(createStore);
