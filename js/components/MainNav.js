@@ -7,9 +7,9 @@ class MainNav extends Component{
   }
   render(){
     return (
-      <ul>
-        <li><NavLink to="/birds">Birds</NavLink></li>
-        <li><NavLink to="/spots">Spots</NavLink></li>
+      <ul className="dropdown menu" data-dropdown-menu>
+        <li><NavLink to="/browse">List Matches</NavLink></li>
+        <li><NavLink to="/score">New Match</NavLink></li>
       </ul>
     );
   }

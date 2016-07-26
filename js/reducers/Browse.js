@@ -1,13 +1,19 @@
 import * as ActionTypes from '../constants/ActionTypes';
 
 let defaultState = {
-  title: 'Home'
+  games: {
+
+  },
+  players: {
+
+  }
 };
 
 export default function(state = defaultState, action) {
+  console.log('in home reducer', 'state', state, 'action', action);
   switch (action.type) {
-    case ActionTypes.TITLE_CHANGED:
-      return {...state, title: action.text};
+    case ActionTypes.LIST_MATCHES:
+      return state;
     default:
       return state;
   }

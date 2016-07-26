@@ -1,1 +1,2 @@
-export {default as Sample} from './Sample';
+export Browse from './Browse';
+export Score from './Score';

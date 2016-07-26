@@ -1,5 +1,142 @@
-.text {
-  font-size: 2rem;
-  line-height: 1.5;
-  color: #FF0000;
+.appContainer {
+  box-sizing: border-box;
+}
+
+.red {
+  background-image: radial-gradient(ellipse farthest-corner at 5px 5px ,
+    #fff 0%, red 5%);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin: 5px;
+  padding: 5px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.yellow {
+  font-weight: bold;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin: 5px;
+  padding: 5px;
+  background-image: radial-gradient(ellipse farthest-corner at 5px 5px ,
+    #fff 0%, rgba(255, 255, 0, 1) 5%);
+}
+
+.green {
+  background-image: radial-gradient(ellipse farthest-corner at 5px 5px ,
+    #fff 0%, rgba(0, 128, 0, 1) 5%);
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin: 5px;
+    padding: 5px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.brown {
+  background-image: radial-gradient(ellipse farthest-corner at 5px 5px ,
+    #fff 0%, rgba(165, 42, 42, 1) 5%);
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin: 5px;
+    padding: 5px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.blue {
+  background-image: radial-gradient(ellipse farthest-corner at 5px 5px ,
+    #fff 0%, rgba(0, 0, 255, 1) 5%);
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin: 5px;
+    padding: 5px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.pink {
+  background-image: radial-gradient(ellipse farthest-corner at 5px 5px ,
+    #fff 0%, rgba(255, 192, 203, 1) 5%);
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin: 5px;
+    padding: 5px;
+    font-weight: bold;
+}
+
+.black {
+  background-image: radial-gradient(ellipse farthest-corner at 5px 5px ,
+    #fff 0%, rgba(0, 0, 0, 1) 5%);
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    color: #fff;
+    margin: 5px;
+    padding: 5px;
+    font-weight: bold;
+}
+
+.white {
+  background-color: #fff;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid #000;
+}
+
+.mainHeader {
+  background-color: #e6e6e6;
+  height: 5vh;
+}
+
+.mainWrapper {
+  height: 90vh;
+  padding: 10vh 10vw;
+}
+
+.mainFooter {
+  background-color: #e6e6e6;
+  height: 5vh;
+}
+
+
+.matchList {
+  list-style: none;
+}
+
+.leftPanel {
+  float: left;
+  width: 40%;
+  text-align: center;
+}
+
+.rightPanel {
+  float: left;
+  width: 40%;
+  text-align: center;
+}
+
+.centerPanel {
+  float: left;
+  width: 20%;
+  text-align: center;
+}
+
+.balls {
+  text-align: center;
+  padding: 10px;
+}
+
+.frameScore {
+  font-size: 4rem;
 }

@@ -1,18 +1,21 @@
 import React from 'react';
-import { Router, Route, browserHistory } from 'react-router'
+import { Router, Route, browserHistory, Redirect, IndexRoute } from 'react-router'
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import configureStore from '../store/configureStore';
 import Home from '../components/Home';
-import Birds from '../components/Birds';
-import Spots from '../components/Spots';
+import Main from '../components/main';
+import MatchList from '../components/MatchList';
+import Score from '../components/Score';
 import {renderDevTools} from '../utils/devTools';
 
 const store = configureStore();
 
 //Create an enhanced history that syncs navigation events with the store
 const history = syncHistoryWithStore(browserHistory, store);
+
+//console.log(Redirect);
 
 
 export default React.createClass({
@@ -23,8 +26,9 @@ export default React.createClass({
         <Provider store={store}>
           <Router history={history}>
             <Route path="/" component={Home}>
-              <Route path="birds" component={Birds}/>
-              <Route path="spots" component={Spots}/>
+              <IndexRoute component={Main}/>
+              <Route path="browse" component={MatchList}/>
+              <Route path="score" component={Score}/>
             </Route>
           </Router>
         </Provider>
