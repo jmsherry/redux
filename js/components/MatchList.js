@@ -14,33 +14,18 @@ class MatchList extends Component {
     };
   }
   componentWillMount(){
-    console.log('in componentWillMount', BrowseActions);
-    const { store } = this.context;
-    console.log('store', store, this.context);
+    // console.log('in componentWillMount', BrowseActions);
+    // const { store } = this.context;
+    // console.log('store', store, this.context);
+    // console.log('props', this.props);
     // const listMatches = BrowseActions.listMatches();
     // const matches = listMatches();
     // console.log(matches);
     // this.setState({matches});
+    BrowseActions.listMatches();
   }
   render() {
     let matches = this.state.matches;
-    // const matches = {
-    //   0: {
-    //     _id: 0,
-    //     players: {
-    //       0: {
-    //         name: 'Steve Davis',
-    //         frames: 2,
-    //         score: 36
-    //       },
-    //       1: {
-    //         name: 'Steven Hendry',
-    //         frames: 4,
-    //         score: 6
-    //       }
-    //     }
-    //   }
-    // }
 
     //Process from firebase to arrays.
     const matchesArray = [];

@@ -1,7 +1,7 @@
 
 # redux (redux)
 
-> Balls
+> test
 
 ## Running your project
 
