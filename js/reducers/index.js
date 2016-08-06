@@ -1,2 +1,2 @@
-export Browse from './Browse';
-export Score from './Score';
+export browse from './Browse';
+//export Score from './Score';

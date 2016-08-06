@@ -1,12 +1,8 @@
-//SYSTEM
-export const DATA_FETCHED = 'DATA_FETCHED';
-export const DATA_SUCCEEDED = 'DATA_SUCCEEDED';
-export const DATA_FAILED = 'DATA_FAILED';
-
 //MATCHES
 export const LIST_MATCHES = 'LIST_MATCHES';
 export const FILTER_MATCHES = 'FILTER_MATCHES';
 export const CREATE_MATCH = 'CREATE_MATCH';
+export const STOP_BROWSING = 'STOP_BROWSING';
 
 //SCORING
 export const SCORE = 'SCORE';

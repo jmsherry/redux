@@ -1,7 +1,7 @@
 import * as ActionTypes from '../constants/ActionTypes';
 
 let defaultState = {
-  games: {
+  matches: {
 
   },
   players: {

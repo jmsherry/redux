@@ -1,4 +1,5 @@
 import {
+  CREATE_MATCH,
   SCORE,
   FOUL,
   CHANGE_PLAYER,
@@ -7,6 +8,14 @@ import {
   END_MATCH_ABANDON
 } from '../constants/ActionTypes';
 import _ from 'lodash';
+
+export function createMatch(matchData) {
+  matchdata._id = _.uniqueId();
+  return {
+    type: CREATE_MATCH,
+    matchData
+  }
+}
 
 export function score(playerId, ball) {
   return {

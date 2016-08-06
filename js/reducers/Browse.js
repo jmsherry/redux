@@ -1,17 +1,13 @@
 import * as ActionTypes from '../constants/ActionTypes';
 
-let defaultState = {
-  games: {
-
-  }
-};
-
-export default function(state = defaultState, action) {
-  console.log('in browse reducer', 'state', state, 'action', action);
+export default function(state = {}, action) {
   switch (action.type) {
     case ActionTypes.LIST_MATCHES:
-      console.log('in list matches');
-      return state;
+      return {...state, matches: action.matches};
+    case ActionTypes.FILTER_MATCHES:
+      return {...state, matches: action.matches};
+    case ActionTypes.STOP_BROWSING:
+      return {...state, matches: action.matches};
     default:
       return state;
   }

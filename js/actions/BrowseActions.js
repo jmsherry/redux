@@ -1,36 +1,46 @@
 import {
-  VIEW_MATCHES,
-  FILTER_MATCHES,
-  CREATE_MATCH
+  LIST_MATCHES,
+  FILTER_MATCHES
 } from '../constants/ActionTypes';
 import fbdb from './../databases/firebase';
 import _ from 'lodash';
 
 export function listMatches() {
-  console.log('listMatches', fbdb);
+  //console.log('listMatches', fbdb);
   return (dispatch) => {
-    console.log('2', dispatch);
-    fbdb.child('games').on('value', (snapshot) =>{
-      console.log('3', snapshot);
+    //console.log('2', dispatch);
+    fbdb.on('value', (snapshot) =>{
+      console.log(typeof snapshot.val(), snapshot.val());
+      const matches = snapshot.val();
       dispatch({
         type: LIST_MATCHES,
-        payload: snapshot.val()
+        matches
       });
     });
   }
 }
 
 export function filterMatches(playerId) {
+  const matches = [];
   return {
     type: FILTER_MATCHES,
-    playerId
+    matches
   }
 }
 
-export function createMatch(matchData) {
-  matchdata._id = _.uniqueId();
-  return {
-    type: CREATE_MATCH,
-    matchData
+// export function stopBrowsing() {
+//   return {
+//     type: STOP_BROWSING
+//   }
+// }
+
+export function stopBrowsing() {
+  console.log('stoppingBrowsing');
+  return (dispatch) => {
+    fbdb.off('value');
+    dispatch({
+      type: STOP_BROWSING,
+      matches: {}
+    });
   }
 }

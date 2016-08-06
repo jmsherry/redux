@@ -30,6 +30,6 @@ class Home extends Component {
 }
 // console.log(connect((state) => state.Sample));
 export default connect((state) => {
-  console.log('HERE', state);
+  //console.log('HERE', state);
   return state;
 })(Home);

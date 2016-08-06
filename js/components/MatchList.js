@@ -1,5 +1,6 @@
 import React, {
-  Component
+  Component,
+  PropTypes
 } from 'react';
 import Match from './Match';
 import * as BrowseActions from './../actions/BrowseActions';
@@ -7,30 +8,48 @@ import _ from 'lodash';
 
 
 class MatchList extends Component {
+
+  static contextTypes = {
+    store: PropTypes.object
+  };
   constructor(){
     super();
     this.state = {
-      matches: {}
+      browse: {
+        matches: {}
+      }
     };
   }
   componentWillMount(){
-    // console.log('in componentWillMount', BrowseActions);
-    // const { store } = this.context;
-    // console.log('store', store, this.context);
-    // console.log('props', this.props);
-    // const listMatches = BrowseActions.listMatches();
-    // const matches = listMatches();
-    // console.log(matches);
-    // this.setState({matches});
-    BrowseActions.listMatches();
+    const { store } = this.context;
+    const matchesThunk = BrowseActions.listMatches();
+    const matches = matchesThunk(store.dispatch);
+    console.log('componentWillMount', matches);
+    this.setState({matches});
+  }
+  componentWillUpdate(){
+    console.log('BrowseList componentWillUpdate', arguments);
+    //this.setState({matches});
+  }
+  componentWillUnmount(){
+    const { store } = this.context;
+    const stopThunk = BrowseActions.stopBrowsing();
+    const stopped = stopThunk(store.dispatch);
   }
   render() {
-    let matches = this.state.matches;
+    let matches = this.state.browse.matches.games;
+    const { store } = this.context;
+    console.log('store', store);
+    console.log('this.store', this);
+    console.log('context', this.context);
+    console.log('props', this.props);
+    console.log('state', this.state);
+    console.log('matches', matches);
 
     //Process from firebase to arrays.
     const matchesArray = [];
     const matchNumbers = _.keys(matches);
-    matchNumbers.forEach(function(n){
+      matchNumbers.forEach(function(n){
       matchesArray.push(matches[n]);
     });
     const matchListings = matchesArray.map(function(match){
@@ -41,11 +60,12 @@ class MatchList extends Component {
       <section id="matches">
         <h1>Matches</h1>
         <ul className="matchList">
-          { matchListings }
+
         </ul>
       </section>
     );
   }
 }
+
 
 export default MatchList;

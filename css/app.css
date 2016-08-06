@@ -96,7 +96,7 @@
 
 .mainHeader {
   background-color: #e6e6e6;
-  height: 7vh;
+  min-height: 7vh;
 }
 
 .mainWrapper {
@@ -106,7 +106,7 @@
 
 .mainFooter {
   background-color: #e6e6e6;
-  height: 5vh;
+  min-height: 5vh;
 }
 
 
