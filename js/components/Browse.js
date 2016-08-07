@@ -9,7 +9,7 @@ class Browse extends Component {
     super();
   }
   render() {
-
+      let matches = {games:[]};
     return (
       <div>
         <h1>Browse Matches</h1>

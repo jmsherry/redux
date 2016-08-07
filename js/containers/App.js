@@ -10,7 +10,15 @@ import MatchList from '../components/MatchList';
 import Score from '../components/Score';
 import {renderDevTools} from '../utils/devTools';
 
-const store = configureStore();
+const initialState = {
+  browse: {
+    matches: {
+      games: []
+    }
+  }
+};
+
+const store = configureStore(initialState);
 
 //Create an enhanced history that syncs navigation events with the store
 const history = syncHistoryWithStore(browserHistory, store);

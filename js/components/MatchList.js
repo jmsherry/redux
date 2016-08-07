@@ -15,13 +15,6 @@ class MatchList extends Component {
   };
   constructor(){
     super();
-    this.state = {
-      browse: {
-        matches: {
-          games: []
-        }
-      }
-    };
   }
   componentWillMount(){
     BrowseActions.listMatches()(this.context.store.dispatch);
@@ -34,22 +27,12 @@ class MatchList extends Component {
   }
   render() {
     let matches = this.props.matches.games;
-    // const { store } = this.context;
-    // console.log('store', store);
-    // console.log('context', this.context);
     console.log('props', this.props);
-    console.log('matches', matches, matches[1]);
+    console.log('matches', matches);
 
-    //Process from firebase to arrays.
-    // const matchesArray = [];
-    // const matchNumbers = _.keys(matches);
-    //   matchNumbers.forEach(function(n){
-    //   matchesArray.push(matches[n]);
-    // });
-    const matchListings = matches.map(function(match){
-      return (<Match key={match._id} match={match} />);
+    const matchListings = matches.map(function(match, i){
+      return (<Match key={i} match={match} />);
     });
-    console.log('matchListings', matchListings);
 
     return (
       <section id="matches">
@@ -66,5 +49,10 @@ class MatchList extends Component {
 //export default MatchList;
 export default connect((state) => {
   console.log('Matchlist connect state', state);
+  // if(!state.browse.matches){
+  //   state.browse.matches = {
+  //     games: []
+  //   };
+  // }
   return state.browse;
 })(MatchList);

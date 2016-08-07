@@ -1,6 +1,7 @@
 import {
   LIST_MATCHES,
-  FILTER_MATCHES
+  FILTER_MATCHES,
+  STOP_BROWSING
 } from '../constants/ActionTypes';
 import fbdb from './../databases/firebase';
 import _ from 'lodash';

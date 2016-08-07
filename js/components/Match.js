@@ -8,9 +8,9 @@ class Match extends Component {
   }
   render() {
     const match = this.props.match;
-    console.log(match, match);
+    //console.log('match', match);
     return (
-      <li className="match">{match.P1Name} {match.P1Frames} ({match.P1Points}) - ({match.P2Points}) {match.P2Frames} {match.P2Name}</li>
+      <li key={this.props.key} className="match">{match.P1Name} {match.P1Points} ({match.P1Frames}) - ({match.P2Frames}) {match.P2Points} {match.P2Name}</li>
     );
   }
 }
