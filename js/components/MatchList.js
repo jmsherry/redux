@@ -2,6 +2,7 @@ import React, {
   Component,
   PropTypes
 } from 'react';
+import { connect } from 'react-redux';
 import Match from './Match';
 import * as BrowseActions from './../actions/BrowseActions';
 import _ from 'lodash';
@@ -16,51 +17,45 @@ class MatchList extends Component {
     super();
     this.state = {
       browse: {
-        matches: {}
+        matches: {
+          games: []
+        }
       }
     };
   }
   componentWillMount(){
-    const { store } = this.context;
-    const matchesThunk = BrowseActions.listMatches();
-    const matches = matchesThunk(store.dispatch);
-    console.log('componentWillMount', matches);
-    this.setState({matches});
+    BrowseActions.listMatches()(this.context.store.dispatch);
   }
   componentWillUpdate(){
     console.log('BrowseList componentWillUpdate', arguments);
-    //this.setState({matches});
   }
   componentWillUnmount(){
-    const { store } = this.context;
-    const stopThunk = BrowseActions.stopBrowsing();
-    const stopped = stopThunk(store.dispatch);
+    BrowseActions.stopBrowsing()(this.context.store.dispatch);
   }
   render() {
-    let matches = this.state.browse.matches.games;
-    const { store } = this.context;
-    console.log('store', store);
-    console.log('this.store', this);
-    console.log('context', this.context);
+    let matches = this.props.matches.games;
+    // const { store } = this.context;
+    // console.log('store', store);
+    // console.log('context', this.context);
     console.log('props', this.props);
-    console.log('state', this.state);
-    console.log('matches', matches);
+    console.log('matches', matches, matches[1]);
 
     //Process from firebase to arrays.
-    const matchesArray = [];
-    const matchNumbers = _.keys(matches);
-      matchNumbers.forEach(function(n){
-      matchesArray.push(matches[n]);
-    });
-    const matchListings = matchesArray.map(function(match){
+    // const matchesArray = [];
+    // const matchNumbers = _.keys(matches);
+    //   matchNumbers.forEach(function(n){
+    //   matchesArray.push(matches[n]);
+    // });
+    const matchListings = matches.map(function(match){
       return (<Match key={match._id} match={match} />);
     });
+    console.log('matchListings', matchListings);
 
     return (
       <section id="matches">
         <h1>Matches</h1>
         <ul className="matchList">
-
+          { matchListings }
         </ul>
       </section>
     );
@@ -68,4 +63,8 @@ class MatchList extends Component {
 }
 
 
-export default MatchList;
+//export default MatchList;
+export default connect((state) => {
+  console.log('Matchlist connect state', state);
+  return state.browse;
+})(MatchList);

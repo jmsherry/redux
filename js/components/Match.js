@@ -8,12 +8,13 @@ class Match extends Component {
   }
   render() {
     const match = this.props.match;
-    const player1= match.players[0];
-    const player2= match.players[1];
+    console.log(match, match);
     return (
-      <li className="match">{player1.name} {player1.frames} ({player1.score}) - ({player2.score}) {player2.frames} {player2.name}</li>
+      <li className="match">{match.P1Name} {match.P1Frames} ({match.P1Points}) - ({match.P2Points}) {match.P2Frames} {match.P2Name}</li>
     );
   }
 }
 
 export default Match;
+      //
+      // <li className="match">{match.P1Name} {match.P1Frames} ({match.P1match.Points}) - ({match.P2match.Points}) {match.P2Frames} {match.P2Name}</li>
